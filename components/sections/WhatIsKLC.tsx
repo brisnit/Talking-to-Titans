@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/Container";
 import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { IMAGES } from "@/lib/images";
 
 const NOT = ["Not networking", "Not coaching", "Not another mastermind"];
 
@@ -14,8 +13,8 @@ export function WhatIsKLC() {
           <Reveal className="order-2 lg:order-1">
             <div className="relative">
               <Media
-                src={IMAGES.brotherhood}
-                alt="A brotherhood of Kingdom builders"
+                src="/brand/brotherhood.png"
+                alt="Five leaders laughing together beneath a wall reading 'A brotherhood of Kingdom builders', Bibles and coffee on the table"
                 ratio="landscape"
                 className="shadow-editorial"
                 sizes="(max-width: 1024px) 100vw, 50vw"
