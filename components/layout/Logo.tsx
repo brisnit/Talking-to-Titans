@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function Logo({
@@ -8,28 +9,27 @@ export function Logo({
   theme?: "dark" | "light";
   className?: string;
 }) {
+  // theme="dark"  → placed on light/cream backgrounds → use the light-background logo
+  // theme="light" → placed on dark/ink backgrounds   → use the dark-background logo
+  const src =
+    theme === "light"
+      ? "/brand/logo-dark-bg.png"
+      : "/brand/logo-light-bg.png";
+
   return (
     <Link
       href="/"
       aria-label="Talking to Titans — home"
-      className={cn("group flex flex-col leading-none", className)}
+      className={cn("inline-flex items-center", className)}
     >
-      <span
-        className={cn(
-          "font-serif text-lg tracking-tight md:text-xl",
-          theme === "dark" ? "text-ink" : "text-cream"
-        )}
-      >
-        Talking to Titans
-      </span>
-      <span
-        className={cn(
-          "mt-1 text-[0.6rem] font-medium uppercase tracking-[0.3em] transition-colors",
-          theme === "dark" ? "text-gold" : "text-gold-light"
-        )}
-      >
-        Building Kingdom Builders
-      </span>
+      <Image
+        src={src}
+        alt="Talking to Titans"
+        width={604}
+        height={262}
+        priority
+        className="h-10 w-auto md:h-12"
+      />
     </Link>
   );
 }
