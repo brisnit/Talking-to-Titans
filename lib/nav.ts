@@ -67,8 +67,6 @@ export const NAV: NavItem[] = [
       { label: "Research & Insights", href: "/resources#research", description: "Data on faith and the marketplace.", comingSoon: true },
     ],
   },
-  { label: "Podcast", href: "/podcast", comingSoon: true },
-  { label: "Conference", href: "/conference", comingSoon: true },
   { label: "Contact", href: "/contact" },
 ];
 

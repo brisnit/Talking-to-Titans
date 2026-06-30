@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/Container";
 import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/ui/Reveal";
 import { EditorialQuote } from "@/components/ui/EditorialQuote";
-import { IMAGES } from "@/lib/images";
 
 export function AndrewStory() {
   return (
@@ -15,15 +14,11 @@ export function AndrewStory() {
               <span className="eyebrow text-gold-light before:bg-gold-light/60">
                 Why I Started Talking to Titans
               </span>
-              <h2 className="mt-6 font-serif text-display-md text-cream md:text-display-lg">
-                A single question changed everything.
-              </h2>
               <Media
-                src={IMAGES.conversation}
-                alt="A pastor in conversation with a business leader"
-                ratio="portrait"
-                overlay
-                className="mt-10"
+                src="/brand/single-question.png"
+                alt="Two leaders in conversation beneath a framed print reading 'A single question changed everything', an open Bible on the table"
+                ratio="landscape"
+                className="mt-8 shadow-editorial"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
