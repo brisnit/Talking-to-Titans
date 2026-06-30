@@ -168,17 +168,25 @@ function MegaMenu({ label, onClose }: { label: string; onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute inset-x-0 top-28 hidden border-y border-ink/10 bg-cream/95 shadow-[0_22px_44px_-26px_rgba(11,11,12,0.45)] backdrop-blur-md lg:block"
+      className="absolute inset-x-0 top-28 hidden border-y border-ink/10 bg-cream shadow-[0_22px_44px_-26px_rgba(11,11,12,0.45)] lg:block"
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-12 gap-10 px-10 py-12">
-        <div className="col-span-3">
-          <p className="eyebrow mb-5">{item.label}</p>
+        <div className="col-span-3 flex flex-col">
+          <span className="eyebrow mb-4">In This Section</span>
           <Link
             href={item.href}
             onClick={onClose}
-            className="font-serif text-2xl text-ink link-underline"
+            className="font-serif text-3xl leading-tight text-ink link-underline"
           >
-            Overview
+            {item.label}
+          </Link>
+          <Link
+            href={item.href}
+            onClick={onClose}
+            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold-deep transition-colors hover:text-ink"
+          >
+            Explore
+            <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
         <ul className="col-span-5 grid grid-cols-2 gap-x-8 gap-y-6">

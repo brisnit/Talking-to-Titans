@@ -24,6 +24,9 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/20 to-transparent" />
+        {/* Top scrim — keeps the header (nav + CTA) legible over the bright
+            skyline at the top of the image */}
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-ink/85 via-ink/40 to-transparent" />
       </div>
 
       {/* Content */}
