@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { IMAGES } from "@/lib/images";
 import { Button } from "@/components/ui/Button";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -16,15 +15,15 @@ export function Hero() {
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src={IMAGES.hero}
-          alt="A leader at first light over the city"
+          src="/brand/hero-bg.png"
+          alt="A leader placing a reassuring hand on another, with the city skyline beyond"
           fill
           priority
           sizes="100vw"
-          className={reduce ? "object-cover" : "object-cover animate-slow-zoom"}
+          className={reduce ? "object-cover object-right" : "object-cover object-right animate-slow-zoom"}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/20 to-transparent" />
       </div>
 
       {/* Content */}
