@@ -9,12 +9,12 @@ export function Logo({
   theme?: "dark" | "light";
   className?: string;
 }) {
-  // theme="dark"  → placed on light/cream backgrounds → use the light-background logo
-  // theme="light" → placed on dark/ink backgrounds   → use the dark-background logo
-  const src =
+  // theme="dark"  → placed on light backgrounds → black-wordmark logo
+  // theme="light" → placed on dark backgrounds  → white-wordmark logo
+  const logo =
     theme === "light"
-      ? "/brand/logo-dark-bg.png"
-      : "/brand/logo-light-bg.png";
+      ? { src: "/brand/logo-dark-bg.png", width: 802, height: 262 }
+      : { src: "/brand/logo-light-bg.png", width: 946, height: 262 };
 
   return (
     <Link
@@ -23,12 +23,12 @@ export function Logo({
       className={cn("inline-flex items-center", className)}
     >
       <Image
-        src={src}
+        src={logo.src}
         alt="Talking to Titans"
-        width={604}
-        height={262}
+        width={logo.width}
+        height={logo.height}
         priority
-        className="h-16 w-auto md:h-20"
+        className="h-14 w-auto md:h-16"
       />
     </Link>
   );

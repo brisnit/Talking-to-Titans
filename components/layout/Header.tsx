@@ -34,6 +34,12 @@ export function Header() {
     };
   }, [mobileOpen]);
 
+  // Routes whose top section is light (so a transparent header needs dark text).
+  // Every other route opens over a dark hero.
+  const LIGHT_TOP_ROUTES = ["/contact"];
+  const overDark =
+    !scrolled && !openMenu && !LIGHT_TOP_ROUTES.includes(pathname);
+
   return (
     <header
       className={cn(
@@ -45,7 +51,7 @@ export function Header() {
       onMouseLeave={() => setOpenMenu(null)}
     >
       <div className="mx-auto flex h-24 max-w-[1600px] items-center justify-between px-6 md:h-28 md:px-10">
-        <Logo theme="dark" />
+        <Logo theme={overDark ? "light" : "dark"} />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
@@ -63,7 +69,13 @@ export function Header() {
                   href={item.href}
                   className={cn(
                     "flex items-center gap-1.5 px-4 py-2 text-sm transition-colors duration-300",
-                    active ? "text-ink" : "text-charcoal/80 hover:text-ink"
+                    overDark
+                      ? active
+                        ? "text-cream"
+                        : "text-cream/80 hover:text-cream"
+                      : active
+                        ? "text-ink"
+                        : "text-charcoal/80 hover:text-ink"
                   )}
                 >
                   <span>{item.label}</span>
@@ -89,7 +101,12 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/refer"
-            className="hidden items-center gap-2 bg-ink px-5 py-3 text-sm font-medium text-cream transition-colors duration-500 ease-editorial hover:bg-gold hover:text-ink md:inline-flex"
+            className={cn(
+              "hidden items-center gap-2 px-5 py-3 text-sm font-medium transition-colors duration-500 ease-editorial md:inline-flex",
+              overDark
+                ? "border border-cream/40 text-cream hover:border-cream hover:bg-cream hover:text-ink"
+                : "bg-ink text-cream hover:bg-gold hover:text-ink"
+            )}
           >
             Refer a Leader
             <ArrowUpRight className="h-4 w-4" />
@@ -97,7 +114,10 @@ export function Header() {
 
           <button
             aria-label="Open menu"
-            className="inline-flex h-11 w-11 items-center justify-center text-ink lg:hidden"
+            className={cn(
+              "inline-flex h-11 w-11 items-center justify-center lg:hidden",
+              overDark ? "text-cream" : "text-ink"
+            )}
             onClick={() => setMobileOpen(true)}
           >
             <Menu className="h-6 w-6" />
