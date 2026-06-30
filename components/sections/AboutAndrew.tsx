@@ -3,7 +3,6 @@ import { Media } from "@/components/ui/Media";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ANDREW_STATS } from "@/lib/content";
-import { IMAGES } from "@/lib/images";
 
 export function AboutAndrew() {
   return (
@@ -13,8 +12,8 @@ export function AboutAndrew() {
           <div className="lg:col-span-5">
             <Reveal>
               <Media
-                src={IMAGES.andrew}
-                alt="Andrew Hartman, founder of Talking to Titans"
+                src="/brand/andrew.png"
+                alt="Andrew Statezny, founder of Talking to Titans"
                 ratio="portrait"
                 className="shadow-editorial"
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -25,7 +24,7 @@ export function AboutAndrew() {
           <div className="lg:col-span-7">
             <span className="eyebrow mb-6">About Andrew</span>
             <h2 className="font-serif text-display-md text-ink md:text-display-lg">
-              Andrew Hartman
+              Andrew Statezny
             </h2>
             <p className="mt-4 text-lg text-gold-deep">
               Founder, Talking to Titans · Pastor of Advancement, Wellspring Church

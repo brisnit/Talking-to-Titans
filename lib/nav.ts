@@ -25,7 +25,7 @@ export const NAV: NavItem[] = [
     href: "/about",
     children: [
       { label: "Our Story", href: "/about", description: "Why Talking to Titans exists." },
-      { label: "Andrew Hartman", href: "/about#andrew", description: "35+ years equipping leaders." },
+      { label: "Andrew Statezny", href: "/about#andrew", description: "35+ years equipping leaders." },
       { label: "Our Beliefs", href: "/about#beliefs", description: "The convictions that shape us." },
       { label: "The Movement", href: "/about#movement", description: "Where this is going." },
     ],

@@ -31,7 +31,7 @@ export default function KLCPage() {
         <Container>
           <EditorialQuote
             quote="The Kingdom Leadership Collective is not something pastors join. It is a gift pastors give to the business leaders God has entrusted to them."
-            cite="Andrew Hartman"
+            cite="Andrew Statezny"
             role="Founder, Talking to Titans"
             className="mx-auto text-center"
           />
