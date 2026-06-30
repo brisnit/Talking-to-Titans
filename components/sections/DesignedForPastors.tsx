@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/Container";
 import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/ui/Reveal";
 import { EditorialQuote } from "@/components/ui/EditorialQuote";
-import { IMAGES } from "@/lib/images";
 
 const OUTCOMES = [
   "More committed to Christ",
@@ -39,8 +38,8 @@ export function DesignedForPastors() {
           <div className="lg:col-span-6">
             <Reveal>
               <Media
-                src={IMAGES.shepherd}
-                alt="A shepherd at first light"
+                src="/brand/invite.png"
+                alt="A leader handing another a Kingdom Leadership Collective envelope marked 'A gift for you', beneath a wall reading Faith. Leadership. Legacy."
                 ratio="landscape"
                 className="shadow-editorial"
                 sizes="(max-width: 1024px) 100vw, 50vw"
