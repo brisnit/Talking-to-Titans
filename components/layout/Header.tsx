@@ -41,6 +41,7 @@ export function Header() {
     !scrolled && !openMenu && !LIGHT_TOP_ROUTES.includes(pathname);
 
   return (
+    <>
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-editorial",
@@ -135,11 +136,15 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      {/* Mobile menu */}
+    </header>
+
+      {/* Mobile menu — rendered OUTSIDE <header> on purpose. The header uses
+          backdrop-filter when scrolled, which would otherwise become the
+          containing block for this fixed overlay and clip it to the header. */}
       <AnimatePresence>
         {mobileOpen && <MobileMenu onClose={() => setMobileOpen(false)} />}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 
@@ -239,7 +244,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-50 overflow-y-auto bg-cream lg:hidden"
+      className="fixed inset-0 z-[60] overflow-y-auto bg-cream lg:hidden"
     >
       <div className="flex h-24 items-center justify-between px-6 md:h-28">
         <Logo theme="dark" />
