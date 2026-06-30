@@ -44,7 +44,7 @@ export function Header() {
       )}
       onMouseLeave={() => setOpenMenu(null)}
     >
-      <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-10">
+      <div className="mx-auto flex h-24 max-w-[1600px] items-center justify-between px-6 md:h-28 md:px-10">
         <Logo theme="dark" />
 
         {/* Desktop nav */}
@@ -123,9 +123,19 @@ export function Header() {
   );
 }
 
+const DEFAULT_FEATURED = {
+  eyebrow: "A Gift You Give",
+  title: "Refer a business leader",
+  body: "Send us a leader you shepherd. We honor your role — always pointing back to you and your church.",
+  href: "/refer",
+  cta: "Refer a Leader",
+};
+
 function MegaMenu({ label, onClose }: { label: string; onClose: () => void }) {
   const item = NAV.find((n) => n.label === label);
   if (!item?.children) return null;
+
+  const featured = item.featured ?? DEFAULT_FEATURED;
 
   return (
     <motion.div
@@ -133,7 +143,7 @@ function MegaMenu({ label, onClose }: { label: string; onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute inset-x-0 top-20 hidden border-t border-ink/10 bg-cream/95 backdrop-blur-md lg:block"
+      className="absolute inset-x-0 top-28 hidden border-y border-ink/10 bg-cream/95 shadow-[0_22px_44px_-26px_rgba(11,11,12,0.45)] backdrop-blur-md lg:block"
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-12 gap-10 px-10 py-12">
         <div className="col-span-3">
@@ -146,7 +156,7 @@ function MegaMenu({ label, onClose }: { label: string; onClose: () => void }) {
             Overview
           </Link>
         </div>
-        <ul className={cn("col-span-5 grid grid-cols-2 gap-x-8 gap-y-6", !item.featured && "col-span-9")}>
+        <ul className="col-span-5 grid grid-cols-2 gap-x-8 gap-y-6">
           {item.children.map((child) => (
             <li key={child.label}>
               <Link
@@ -172,31 +182,29 @@ function MegaMenu({ label, onClose }: { label: string; onClose: () => void }) {
           ))}
         </ul>
 
-        {item.featured && (
-          <div className="col-span-4">
-            <div className="grain flex h-full flex-col justify-between bg-ink p-8 text-cream">
-              <div>
-                <p className="text-[0.65rem] uppercase tracking-widest text-gold-light">
-                  {item.featured.eyebrow}
-                </p>
-                <h3 className="mt-4 font-serif text-2xl leading-snug text-cream">
-                  {item.featured.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/70">
-                  {item.featured.body}
-                </p>
-              </div>
-              <Link
-                href={item.featured.href}
-                onClick={onClose}
-                className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-gold-light hover:text-cream"
-              >
-                {item.featured.cta}
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
+        <div className="col-span-4">
+          <div className="grain flex h-full flex-col justify-between bg-ink p-8 text-cream">
+            <div>
+              <p className="text-[0.65rem] uppercase tracking-widest text-gold-light">
+                {featured.eyebrow}
+              </p>
+              <h3 className="mt-4 font-serif text-2xl leading-snug text-cream">
+                {featured.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-cream/70">
+                {featured.body}
+              </p>
             </div>
+            <Link
+              href={featured.href}
+              onClick={onClose}
+              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-gold-light hover:text-cream"
+            >
+              {featured.cta}
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </motion.div>
   );
@@ -213,7 +221,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       transition={{ duration: 0.3 }}
       className="fixed inset-0 z-50 overflow-y-auto bg-cream lg:hidden"
     >
-      <div className="flex h-20 items-center justify-between px-6">
+      <div className="flex h-24 items-center justify-between px-6 md:h-28">
         <Logo theme="dark" />
         <button
           aria-label="Close menu"

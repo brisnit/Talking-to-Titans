@@ -28,7 +28,7 @@ export function Logo({
         width={604}
         height={262}
         priority
-        className="h-[52px] w-auto md:h-[62px]"
+        className="h-16 w-auto md:h-20"
       />
     </Link>
   );

@@ -34,7 +34,6 @@ export const NAV: NavItem[] = [
     label: "Kingdom Leadership Collective",
     href: "/kingdom-leadership-collective",
     children: [
-      { label: "Overview", href: "/kingdom-leadership-collective", description: "A brotherhood of Kingdom builders." },
       { label: "Five Areas of Formation", href: "/kingdom-leadership-collective#formation", description: "How leaders are shaped." },
       { label: "What Members Receive", href: "/kingdom-leadership-collective#membership", description: "Summit, roundtable, rhythms." },
       { label: "Become a Founding Member", href: "/kingdom-leadership-collective#join", description: "Join the founding cohort." },
